@@ -147,6 +147,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Resources\" />
     <Folder Include="Views\UserModel\" />
   </ItemGroup>
   <PropertyGroup>
