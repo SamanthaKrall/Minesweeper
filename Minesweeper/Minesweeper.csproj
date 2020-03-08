@@ -99,6 +99,20 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Resources\1.jpg" />
+    <Content Include="Resources\2.jpg" />
+    <Content Include="Resources\3.jpg" />
+    <Content Include="Resources\4.jpg" />
+    <Content Include="Resources\5.jpg" />
+    <Content Include="Resources\6.jpg" />
+    <Content Include="Resources\7.jpg" />
+    <Content Include="Resources\8.jpg" />
+    <Content Include="Resources\Blank.ico" />
+    <Content Include="Resources\blank.png" />
+    <Content Include="Resources\Flag.png" />
+    <Content Include="Resources\Mine.png" />
+    <Content Include="Resources\NoMine.ico" />
+    <Content Include="Resources\Question.ico" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -147,7 +161,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
     <Folder Include="Views\UserModel\" />
   </ItemGroup>
   <PropertyGroup>
