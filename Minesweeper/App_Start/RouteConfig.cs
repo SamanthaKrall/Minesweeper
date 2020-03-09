@@ -24,12 +24,13 @@ namespace Minesweeper
                 url: "{Login}",
                 defaults: new { controller = "Login", action = "Index", id = UrlParameter.Optional }
                 );
-
+            
             routes.MapRoute(
                 name: "Register",
                 url: "{Register}",
                 defaults: new { controller = "Register", action = "Index", id = UrlParameter.Optional }
-                );
+            );
+
         }
     }
 }
