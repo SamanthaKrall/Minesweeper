@@ -36,5 +36,34 @@ namespace Minesweeper.Services.Data
 
             return authenticate;
         }
+
+        public bool NewUser(Models.UserModel user)
+        {
+            //set outcome to false because return statement should default to false not true
+            bool outcome = false;
+            string queryString = "INSERT INTO dbo.Users(USERNAME, PASSWORD) VALUES(@Username, @Password)";
+            using (System.Data.SqlClient.SqlConnection conn = new SqlConnection(connection))
+            {
+                SqlCommand command = new SqlCommand(queryString, conn);
+                command.Parameters.Add("@USERNAME", System.Data.SqlDbType.VarChar, 50).Value = user.Username;
+                command.Parameters.Add("@PASSWORD", System.Data.SqlDbType.VarChar, 50).Value = user.Password;
+                try
+                {
+                    conn.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    adapter.InsertCommand = (command);
+                    adapter.InsertCommand.ExecuteNonQuery();
+                    command.Dispose();
+                    conn.Close();
+                    outcome = true;
+                    return outcome;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return outcome;
+        }
     }
 }

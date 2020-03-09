@@ -12,5 +12,10 @@ namespace Minesweeper.Services.Business
             Data.SecurityDAO service = new Data.SecurityDAO();
             return service.FindByUser(user);
         }
+        public bool Insert(Models.UserModel user)
+        {
+            Data.SecurityDAO insert = new Data.SecurityDAO();
+            return insert.NewUser(user);
+        }
     }
 }
