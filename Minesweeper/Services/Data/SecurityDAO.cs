@@ -14,7 +14,7 @@ namespace Minesweeper.Services.Data
         public bool FindByUser(Models.UserModel user)
         {
             bool authenticate = true;
-            string queryString = "SELECT * FROM dbo.Users FROM USERNAME = @Username AND PASSWORD = @Password";
+            string queryString = "SELECT * FROM dbo.Users WHERE USERNAME = @Username AND PASSWORD = @Password";
             using (System.Data.SqlClient.SqlConnection conn = new SqlConnection(connection))
             {
                 SqlCommand command = new SqlCommand(queryString, conn);

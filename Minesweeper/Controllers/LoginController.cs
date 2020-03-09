@@ -20,7 +20,7 @@ namespace Minesweeper.Controllers
 
             if (authenticate)
             {
-                return View("LoginPassed", user);
+                return View("Minesweeper", user);
             }
             else
             {

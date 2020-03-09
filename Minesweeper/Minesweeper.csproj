@@ -125,13 +125,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MinesweeperEngine.cs" />
+    <Compile Include="Models\Button.cs" />
+    <Compile Include="Models\HighscoreModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Business\GameService.cs" />
     <Compile Include="Services\Business\SecurityService.cs" />
+    <Compile Include="Services\Data\GameDAO.cs" />
     <Compile Include="Services\Data\SecurityDAO.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +159,8 @@
     <Content Include="Views\Login\LoginPassed.cshtml" />
     <Content Include="Views\Login\LoginFailed.cshtml" />
     <Content Include="Views\Shared\_ViewStart.cshtml" />
+    <Content Include="Views\Game\Minesweeper.cshtml" />
+    <Content Include="Views\Game\MinesweeperBoard.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

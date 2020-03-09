@@ -1,0 +1,36 @@
+﻿@model Minesweeper.Models.Button[,]
+@{
+    ViewBag.Title = "Minesweeper";
+    AjaxOptions ajaxOptions = new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "minesweeperBoard" };
+
+}
+
+
+
+<script type=" text/javascript">
+    $(function()
+    {
+        setInterval("$('#time').load('/Game/Time')", 1000);
+    });
+</script>
+
+<div class="form-horizontal">
+    <br />
+    <h4> Online Minesweeper</h4>
+    <div id="time">
+        @Html.Partial("Time")
+    </div>
+</div>
+
+<div>
+    @using (Ajax.BeginForm("OnClick", "Game", ajaxOptions, new { id = "myform" }))
+    {
+        <div id="minesweeperBoard">
+            @Html.Partial("MinesweeperBoard", Model)
+        </div>
+    }
+</div>
+
+<div class="form-horizontal">
+    <hr />
+</div>

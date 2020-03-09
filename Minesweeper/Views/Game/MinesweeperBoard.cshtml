@@ -1,0 +1,138 @@
+﻿@{ 
+    int id = 1;
+}
+
+<script language="javascript">
+    function winAlert() {
+        alert("Congratulations! You won!");
+    }
+</script>
+
+<style>
+    .one {
+		background-color: #C0C0C0;
+		height: 40px;
+		width: 40px;
+		color: blue;
+	}
+
+	.two {
+		background-color: #C0C0C0;
+		height: 40px;
+		width: 40px;
+		color: #006400;
+	}
+
+	.three {
+		background-color: #C0C0C0;
+		height: 40px;
+		width: 40px;
+		color: red;
+	}
+
+	.other {
+		background-color: #C0C0C0;
+		height: 40px;
+		width: 40px;
+		color: #551A8B;
+	}
+</style>
+
+<table>
+	@for(int i = 0; i < 15; i++)
+    {
+		<tr>
+			@for (int j = 0; j < 15; j++)
+            {
+			<th>
+				@if (Model[i, j].Visited == false)
+				{
+					<button type="submit" name="mine" value="@id" style="background-color: #DCDCDC; height: 40px; width: 40px">
+						<div>
+							@Model[i, j].Text
+						</div>
+					</button>
+				}
+				else if (Model[i, j].Visited == true)
+				{
+					if (Model[i, j].Live == false)
+					{
+						if (Model[i, j].Neighbors == 0)
+						{
+							<button type="submit" name="mine" value="@id" style="background-color: #C0C0C0; height: 40px; width: 40px" disabled>
+								<div>
+									@Model[i, j].Text
+								</div>
+							</button>
+						}
+						else
+						{
+							if (Model[i, j].Neighbors == 1)
+							{
+								<button class="one" type="submit" name="mine" value="@id" disabled>
+									<div>
+										@Model[i, j].Neighbors
+									</div>
+								</button>
+							}
+
+							if (Model[i, j].Neighbors == 2)
+							{
+								<button class="two" type="submit" name="mine" value="@id" disabled>
+									<div>
+										@Model[i, j].Neighbors
+									</div>
+								</button>
+							}
+
+							if (Model[i, j].Neighbors == 3)
+							{
+								<button class="three" type="submit" name="mine" value="@id" disabled>
+									<div>
+										@Model[i, j].Neighbors
+									</div>
+								</button>
+							}
+
+							if (Model[i, j].Neighbors >= 4)
+							{
+								<button class="other" type="submit" name="mine" value="@id" disabled>
+									<div>
+										@Model[i, j].Neighbors
+									</div>
+								</button>
+							}
+						}
+					}
+					else if (Model[i, j].Live == true && Model[i, j].Win == true)
+					{
+						<button type="submit" name="mine" value="@id" style="background-color: #C0C0C0; height: 40px; width: 40px" disabled>
+							<div>
+								<img src="~/Resources/Flag.png" style="width: 25px; height: 25px;" />
+							</div>
+						</button>
+					}
+					else if (Model[i, j].Live == true && Model[i, j].Win == false)
+					{
+						<button type="submit" name="mine" value="@id" style="background-color: #C0C0C0; height: 40px; width: 40px" disabled>
+							<div>
+								<img src="~/Resources/Mine.png" style="width: 22px; height: 22px;" />
+							</div>
+						</button>
+					}
+				}
+			</th>
+                id++;
+            }
+		</tr>
+    }
+</table>
+
+@if (Model[0, 0].Win == true)
+{
+	<script>
+        winAlert();
+	</script>
+}
+
+
