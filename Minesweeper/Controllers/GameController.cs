@@ -55,6 +55,7 @@ namespace Minesweeper.Controllers
             }
         }
 
+        [CustomAuthorization]
         public ActionResult OnButtonClick(string mine)
         {
             MinesweeperEngine newMe = (MinesweeperEngine)HttpContext.Session["ME"];
@@ -69,6 +70,7 @@ namespace Minesweeper.Controllers
         }
 
         [HttpPost]
+        [CustomAuthorization]
         public PartialViewResult OnClick(string mine)
         {
             MinesweeperEngine newMe = (MinesweeperEngine)HttpContext.Session["ME"];
@@ -97,6 +99,7 @@ namespace Minesweeper.Controllers
             return View("~/Views/User/Login.cshtml");
         }
 
+        [CustomAuthorization]
         public ActionResult SaveGame()
         {
             MinesweeperEngine newMe = (MinesweeperEngine)HttpContext.Session["ME"];
@@ -109,6 +112,7 @@ namespace Minesweeper.Controllers
         }
 
         [OutputCache(NoStore = true, Location = OutputCacheLocation.Client, Duration = 1)]
+        [CustomAuthorization]
         public PartialViewResult Time()
         {
             MinesweeperEngine newMe = (MinesweeperEngine)HttpContext.Session["ME"];
