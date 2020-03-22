@@ -160,6 +160,7 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\CustomActionAttribute.cs" />
+    <Compile Include="Controllers\CustomAuthorizationAttribute.cs" />
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
@@ -212,6 +213,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\CustomActionAttribute\" />
+    <Folder Include="Views\CustomAuthorizationAttribute\" />
     <Folder Include="Views\UserModel\" />
   </ItemGroup>
   <PropertyGroup>

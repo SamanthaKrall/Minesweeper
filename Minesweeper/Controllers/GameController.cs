@@ -13,6 +13,7 @@ namespace Minesweeper.Controllers
     {
         private MinesweeperEngine me = new MinesweeperEngine();
 
+        [CustomAuthorization]
         public ActionResult PlayAgain()
         {
             MinesweeperEngine newMe = (MinesweeperEngine)HttpContext.Session["ME"];
@@ -28,6 +29,7 @@ namespace Minesweeper.Controllers
             }
         }
 
+        [CustomAuthorization]
         public ActionResult PlayMinesweeper()
         {
             if (HttpContext.Session["Username"] == null)
@@ -44,7 +46,7 @@ namespace Minesweeper.Controllers
                 if (gs.getGame(userName) != null)
                 {
                     newMe.createSavedGame((gs.getGame(userName)));
-                    return View("PlayMinesweeper", newMe.getGrid());
+                    return View("Minesweeper", newMe.getGrid());
                 }
                 else
                 {
