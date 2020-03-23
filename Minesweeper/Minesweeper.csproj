@@ -207,6 +207,22 @@
     <Content Include="Views\Register\Register.cshtml" />
     <Content Include="Views\Register\RegisterFailed.cshtml" />
     <Content Include="Views\Register\RegisterPassed.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_LoggedOutHeader.cshtml" />
+    <Content Include="Views\Shared\_LoggedOutLayout.cshtml" />
+    <Content Include="Views\Shared\_MyDefaultLayout.cshtml" />
+    <Content Include="Views\Shared\_PlayHeader.cshtml" />
+    <Content Include="Views\Shared\_PlayLayout.cshtml" />
+    <Content Include="Views\Shared\Time.cshtml" />
+    <Content Include="Views\User\DuplicateUser.cshtml" />
+    <Content Include="Views\User\Home.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\LoginError.cshtml" />
+    <Content Include="Views\User\LoginFailed.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\User\RegisterError.cshtml" />
+    <Content Include="Views\User\RegisterFailed.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -217,8 +233,6 @@
   <ItemGroup>
     <Folder Include="Views\CustomActionAttribute\" />
     <Folder Include="Views\CustomAuthorizationAttribute\" />
-    <Folder Include="Views\UserModel\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
