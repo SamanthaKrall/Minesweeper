@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
-
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(WCFService.UnityMvcActivator), nameof(HighscoreRESTService.UnityMvcActivator.Start))]
-[assembly: WebActivatorEx.ApplicationShutdownMethod(typeof(WCFService.UnityMvcActivator), nameof(HighscoreRESTService.UnityMvcActivator.Shutdown))]
+using Unity.AspNet.Mvc;
 
 namespace HighscoreRESTService.App_Start
 {

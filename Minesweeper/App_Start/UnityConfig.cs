@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Unity;
+﻿using Unity;
 using Unity.Lifetime;
+using Minesweeper.Services.Utility;
+
 
 namespace Minesweeper.App_Start
 {
@@ -11,7 +9,7 @@ namespace Minesweeper.App_Start
     {
         public static void RegisterTypes(IUnityContainer container)
         {
-            container.RegisterType<ILogger2>(new ContainerControlledLifetimeManager());
+            container.RegisterType<ILogger>(new ContainerControlledLifetimeManager());
         }
     }
 }
