@@ -1,6 +1,8 @@
 ﻿using Minesweeper.Services.Business;
 using System;
 using System.Linq;
+using Minesweeper.Models;
+
 
 
 namespace HighscoreRESTService
