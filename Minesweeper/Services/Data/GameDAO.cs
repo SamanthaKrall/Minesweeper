@@ -7,8 +7,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Script.Serialization;
 using Minesweeper.Models;
-using System.Collections.Generic;
-using System.Data;
 
 
 namespace Minesweeper.Services.Data
