@@ -2,9 +2,12 @@
 using System.Web.Mvc;
 using Unity.AspNet.Mvc;
 
-namespace HighscoreRESTService.App_Start
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(WCFService.UnityMvcActivator), nameof(WCFService.UnityMvcActivator.Start))]
+[assembly: WebActivatorEx.ApplicationShutdownMethod(typeof(WCFService.UnityMvcActivator), nameof(WCFService.UnityMvcActivator.Shutdown))]
+
+namespace WCFService
 {
-    public class UnityMvcActivator
+    public static class UnityMvcActivator
     {
         public static void Start()
         {

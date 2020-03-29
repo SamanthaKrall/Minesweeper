@@ -4,11 +4,20 @@ using System.Linq;
 using System.Web;
 using Unity;
 
-namespace HighscoreRESTService.App_Start
+namespace WCFService
 {
-    public class UnityConfig
+    public static class UnityConfig
     {
-        public static object Container { get; internal set; }
+        #region Unity Container
+        private static Lazy<IUnityContainer> container = new Lazy<IUnityContainer>(() =>
+        {
+            var container = new UnityContainer();
+            RegisterTypes(container);
+            return container;
+        });
+
+        public static IUnityContainer Container => container.Value;
+            #endregion
 
         public static void RegisterTypes(IUnityContainer container)
         {
