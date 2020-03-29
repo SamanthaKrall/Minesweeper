@@ -7,6 +7,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Script.Serialization;
 using Minesweeper.Models;
+using System.Collections.Generic;
+using System.Data;
+
 
 namespace Minesweeper.Services.Data
 {
@@ -158,6 +161,119 @@ namespace Minesweeper.Services.Data
             {
                 return "success";
             }
+        }
+
+        public List<HighscoreModel> getHighscores()
+        {
+            List<HighscoreModel> highscores = new List<HighscoreModel>();
+
+            try
+            {
+                string query = "SELECT * FROM dbo.Highscores ORDER BY TIME ASC";
+
+                using (SqlConnection cn = new SqlConnection(connectionString))
+                using (SqlCommand cmd = new SqlCommand(query, cn))
+                {
+                    cn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        int id = (int)reader["ID"];
+                        string userName = (string)reader["USERNAME"];
+                        int time = (int)reader["TIME"];
+
+                        HighscoreModel hs = new HighscoreModel();
+                        hs.Id = id;
+                        hs.Username = userName;
+                        hs.Time = time;
+
+                        highscores.Add(hs);
+                    }
+                    cn.Close();
+                }
+            }
+            catch (SqlException e)
+            {
+                throw e;
+            }
+            return highscores;
+        }
+
+        public List<HighscoreModel> getUserHighscore(string username)
+        {
+            List<HighscoreModel> highscore = new List<HighscoreModel>();
+
+            try
+            {
+                string query = "SELECT TOP 1 * FROM dbo.Highscores WHERE USERNAME=@Username ORDER BY TIME ASC";
+
+                using (SqlConnection cn = new SqlConnection(connectionString))
+                using (SqlCommand cmd = new SqlCommand(query, cn))
+                {
+                    cmd.Parameters.Add("@Username", SqlDbType.VarChar, 50).Value = username;
+                    
+                    cn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        int id = (int)reader["ID"];
+                        string userName = (string)reader["USERNAME"];
+                        int time = (int)reader["TIME"];
+
+                        HighscoreModel hs = new HighscoreModel();
+                        hs.Id = id;
+                        hs.Username = userName;
+                        hs.Time = time;
+
+                        highscore.Add(hs);
+                    }
+                    cn.Close();
+                }
+            }
+            catch (SqlException e)
+            {
+                throw e;
+            }
+            return highscore;
+        }
+
+        public List<HighscoreModel> getTopThreeHighscores()
+        {
+            List<HighscoreModel> highscores = new List<HighscoreModel>();
+
+            try
+            {
+                string query = "SELECT TOP 3 * FROM dbo.Highscores ORDER BY TIME ASC";
+
+                using (SqlConnection cn = new SqlConnection(connectionString))
+                using (SqlCommand cmd = new SqlCommand(query, cn))
+                {
+                    cn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        int id = (int)reader["ID"];
+                        string userName = (string)reader["USERNAME"];
+                        int time = (int)reader["TIME"];
+
+                        HighscoreModel hs = new HighscoreModel();
+                        hs.Id = id;
+                        hs.Username = userName;
+                        hs.Time = time;
+
+                        highscores.Add(hs);
+                    }
+                    cn.Close();
+                }
+            }
+            catch (SqlException e)
+            {
+                throw e;
+            }
+            return highscores;
         }
     }
 }

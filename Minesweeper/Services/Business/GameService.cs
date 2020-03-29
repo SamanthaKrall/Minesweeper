@@ -32,5 +32,29 @@ namespace Minesweeper.Services.Business
             GameDAO service = new GameDAO();
             service.saveTime(userName, time);
         }
-    }
+
+		public List<HighscoreModel> getAllHighscores()
+		{
+			GameDAO service = new GameDAO();
+			List<HighscoreModel> highscores = new List<HighscoreModel>();
+			highscores = service.getHighscores();
+			return highscores;
+		}
+
+		public List<HighscoreModel> getUserHighscore(string userName)
+		{
+			GameDAO service = new GameDAO();
+			List<HighscoreModel> highscore = new List<HighscoreModel>();
+			highscore = service.getUserHighscore(userName);
+			return highscore;
+		}
+
+		public List<HighscoreModel> getTopThreeHighscores()
+		{
+			GameDAO service = new GameDAO();
+			List<HighscoreModel> highscores = new List<HighscoreModel>();
+			highscores = service.getTopThreeHighscores();
+			return highscores;
+		}
+	}
 }
