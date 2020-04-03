@@ -1,16 +1,15 @@
-﻿using Minesweeper.App_Start;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Unity.AspNet.Mvc;
 
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(WCFService.UnityMvcActivator), nameof(WCFService.UnityMvcActivator.Start))]
-[assembly: WebActivatorEx.ApplicationShutdownMethod(typeof(WCFService.UnityMvcActivator), nameof(WCFService.UnityMvcActivator.Shutdown))]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Minesweeper.UnityMvcActivator), nameof(Minesweeper.UnityMvcActivator.Start))]
+[assembly: WebActivatorEx.ApplicationShutdownMethod(typeof(Minesweeper.UnityMvcActivator), nameof(Minesweeper.UnityMvcActivator.Shutdown))]
 
 
-namespace WCFService
+namespace Minesweeper
 {
     public static class UnityMvcActivator
     {

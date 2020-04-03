@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
+using Minesweeper.GameEngine;
 
 namespace Minesweeper.Controllers
 {
@@ -125,11 +126,6 @@ namespace Minesweeper.Controllers
                 HttpContext.Session["Time"] = (int)HttpContext.Session["Time"] + 1;
                 return PartialView("Time", (int)HttpContext.Session["Time"]);
             }
-        }
-        // GET: Game
-        public ActionResult Index()
-        {
-            return View();
         }
     }
 }

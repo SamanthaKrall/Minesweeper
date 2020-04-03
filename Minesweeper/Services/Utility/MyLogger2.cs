@@ -1,5 +1,4 @@
 ﻿using NLog;
-using NUnit.Framework.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +6,9 @@ using System.Web;
 
 namespace Minesweeper.Services.Utility
 {
-    public class MyLogger2 : ILogger
+    class MyLogger2 : ILogger
     {
-        private NLog.Logger logger;
-
+        private Logger logger;
         public void Debug(string message, string arg = null)
         {
             if (arg == null)

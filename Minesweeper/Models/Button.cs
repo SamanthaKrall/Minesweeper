@@ -5,6 +5,7 @@ using System.Web;
 
 namespace Minesweeper.Models
 {
+    [Serializable]
     public class Button
     {
         public int Row { get; set; }

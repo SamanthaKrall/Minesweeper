@@ -1,11 +1,10 @@
 ﻿@model Minesweeper.Models.Button[,]
 @{
     ViewBag.Title = "Minesweeper";
+    Layout = "~/Views/Shared/_PlayLayout.cshtml";
     AjaxOptions ajaxOptions = new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "minesweeperBoard" };
 
 }
-
-
 
 <script type=" text/javascript">
     $(function()
@@ -20,6 +19,7 @@
     <div id="time">
         @Html.Partial("Time")
     </div>
+    <hr />
 </div>
 
 <div>

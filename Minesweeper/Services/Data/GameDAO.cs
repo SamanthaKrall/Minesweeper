@@ -72,9 +72,13 @@ namespace Minesweeper.Services.Data
                     cn.Open();
                     int rows = cmd.ExecuteNonQuery();
                     if (rows == 1)
+                    {
                         result = true;
+                    }
                     else
+                    {
                         result = false;
+                    }
                     cn.Close();
                 }
             }
@@ -180,12 +184,10 @@ namespace Minesweeper.Services.Data
                         int id = (int)reader["ID"];
                         string userName = (string)reader["USERNAME"];
                         int time = (int)reader["TIME"];
-
                         HighscoreModel hs = new HighscoreModel();
                         hs.Id = id;
                         hs.Username = userName;
                         hs.Time = time;
-
                         highscores.Add(hs);
                     }
                     cn.Close();

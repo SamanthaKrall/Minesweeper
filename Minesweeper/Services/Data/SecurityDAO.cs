@@ -3,69 +3,130 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using Minesweeper.Models;
+using System.Data;
 
 namespace Minesweeper.Services.Data
 {
     public class SecurityDAO
     {
-        string connection = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog = Test;"
-            + "Integrated Security = True";
+        string connectionString = string.Empty;
 
-        public bool FindByUser(Models.UserModel user)
+        public bool FindByUser(UserModel user)
         {
-            bool authenticate = false;
-            string queryString = "SELECT * FROM dbo.Users WHERE USERNAME = @Username AND PASSWORD = @Password";
-            using (System.Data.SqlClient.SqlConnection conn = new SqlConnection(connection))
+            bool result = false;
+            try
             {
-                SqlCommand command = new SqlCommand(queryString, conn);
-                command.Parameters.Add("@USERNAME", System.Data.SqlDbType.VarChar, 50).Value = user.Username;
-                command.Parameters.Add("@PASSWORD", System.Data.SqlDbType.VarChar, 50).Value = user.Password;
-                try
-                {
-                    conn.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-                    if (reader.HasRows)
-                        authenticate = true;
-                    reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            }
+				string query = "SELECT * FROM dbo.Users WHERE USERNAME=@Username COLLATE SQL_Latin1_General_CP1_CS_AS AND PASSWORD=@Password COLLATE SQL_Latin1_General_CP1_CS_AS";
 
-            return authenticate;
+				using (SqlConnection cn = new SqlConnection(connectionString))
+				using (SqlCommand cmd = new SqlCommand(query, cn))
+				{
+					cmd.Parameters.Add("@Username", SqlDbType.VarChar, 50).Value = user.Username;
+					cmd.Parameters.Add("@Password", SqlDbType.VarChar, 50).Value = user.Password;
+
+					cn.Open();
+					SqlDataReader reader = cmd.ExecuteReader();
+					if (reader.HasRows)
+					{
+						result = true;
+					}
+					else
+					{
+						result = false;
+					}
+					cn.Close();
+				}
+            }
+            catch (SqlException e)
+            {
+                throw e;
+            }
+            return result;
         }
 
-        public bool NewUser(Models.UserModel user)
-        {
-            //set outcome to false because return statement should default to false not true
-            bool outcome = false;
-            string queryString = "INSERT INTO dbo.Users(USERNAME, PASSWORD) VALUES(@Username, @Password)";
-            using (System.Data.SqlClient.SqlConnection conn = new SqlConnection(connection))
-            {
-                SqlCommand command = new SqlCommand(queryString, conn);
-                command.Parameters.Add("@USERNAME", System.Data.SqlDbType.VarChar, 50).Value = user.Username;
-                command.Parameters.Add("@PASSWORD", System.Data.SqlDbType.VarChar, 50).Value = user.Password;
-                try
-                {
-                    conn.Open();
-                    SqlDataAdapter adapter = new SqlDataAdapter();
-                    adapter.InsertCommand = (command);
-                    adapter.InsertCommand.ExecuteNonQuery();
-                    command.Dispose();
-                    conn.Close();
-                    outcome = true;
-                    return outcome;
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            }
-            return outcome;
-        }
-    }
-
-
+		public string Create(RegisterModel user)
+		{
+			bool result = false;
+			int userId = 1;
+			try
+			{
+				string query = "SELECT * FROM dbo.Users WHERE USERNAME=@Username OR PASSWORD=@Password";
+				using (SqlConnection cn = new SqlConnection(connectionString))
+				using (SqlCommand cmd = new SqlCommand(query, cn))
+				{
+					cmd.Parameters.Add("@Username", SqlDbType.VarChar, 50).Value = user.Username;
+					cmd.Parameters.Add("@Password", SqlDbType.VarChar, 50).Value = user.Password;
+					cn.Open();
+					SqlDataReader reader = cmd.ExecuteReader();
+					if (reader.HasRows)
+					{
+						result = false;
+					}
+					else
+					{
+						result = true;
+					}
+					cn.Close();
+				}
+				if (result == false)
+				{
+					return "duplicate";
+				}
+				query = "INSERT INTO dbo.Users (USERNAME, PASSWORD, FIRSTNAME, LASTNAME, SEX, AGE, STATE, EMAIL) VALUES (@Username, @Password, @Firstname, @Lastname, @Sex, @Age, @State, @Email); SELECT SCOPE_IDENTITY () As UserID";
+				using (SqlConnection cn = new SqlConnection(connectionString))
+				using (SqlCommand cmd = new SqlCommand(query, cn))
+				{
+					cmd.Parameters.Add("@Username", SqlDbType.VarChar, 50).Value = user.Username;
+					cmd.Parameters.Add("@Password", SqlDbType.VarChar, 50).Value = user.Password;
+					cmd.Parameters.Add("@Firstname", SqlDbType.VarChar, 50).Value = user.Firstname;
+					cmd.Parameters.Add("@Lastname", SqlDbType.VarChar, 50).Value = user.Lastname;
+					cmd.Parameters.Add("@Sex", SqlDbType.VarChar, 50).Value = user.Sex;
+					cmd.Parameters.Add("@Age", SqlDbType.Int).Value = user.Age;
+					cmd.Parameters.Add("@State", SqlDbType.VarChar, 50).Value = user.State;
+					cmd.Parameters.Add("@Email", SqlDbType.VarChar, 50).Value = user.Email;
+					cn.Open();
+					SqlDataReader dataReader = cmd.ExecuteReader();
+					if (dataReader.HasRows)
+					{
+						dataReader.Read();
+						userId = Convert.ToInt32(dataReader["UserID"]);
+					}
+					cn.Close();
+				}
+				query = "INSERT INTO dbo.GameBoards (USER_ID, USERNAME, GAMEBOARD, TIME) VALUES (@Userid, @Username, @Gameboard, @Time)";
+				using (SqlConnection cn = new SqlConnection(connectionString))
+				using (SqlCommand cmd = new SqlCommand(query, cn))
+				{
+					cmd.Parameters.Add("@Userid", SqlDbType.Int).Value = userId;
+					cmd.Parameters.Add("@Username", SqlDbType.VarChar, 50).Value = user.Username;
+					cmd.Parameters.Add("@Gameboard", SqlDbType.VarChar).Value = "0";
+					cmd.Parameters.Add("@Time", SqlDbType.Int).Value = -1;
+					cn.Open();
+					int rows = cmd.ExecuteNonQuery();
+					if (rows == 1)
+					{
+						result = true;
+					}
+					else
+					{
+						result = false;
+					}
+					cn.Close();
+				}
+			}
+			catch (SqlException e)
+			{
+				throw e;
+			}
+			if (result == false)
+			{
+				return "fail";
+			}
+			else
+			{
+				return "success";
+			}
+		}
+	}
 }

@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using NLog;
-using NUnit.Framework.Internal;
 
 namespace Minesweeper.Services.Utility
 {
     public class MyLogger1 : ILogger
     {
         private static MyLogger1 instance;
-        private static NLog.Logger logger;
+        private static Logger logger;
 
         private MyLogger1() { }
 
@@ -72,7 +71,7 @@ namespace Minesweeper.Services.Utility
             }
         }
 
-        private NLog.Logger GetLogger(string theLogger)
+        private Logger GetLogger(string theLogger)
         {
             if (MyLogger1.logger == null)
             {

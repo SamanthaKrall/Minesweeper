@@ -138,7 +138,12 @@ namespace Minesweeper.GameEngine
             return grid;
         }
 
-        public void setGrid(Button[,] game)
+        public void setGrid(Button[,] grid)
+        {
+            this.grid = grid;
+        }
+
+        public void createSavedGame(Button[] game)
         {
             Button[,] savedGame = new Button[15, 15];
             int x = 0;

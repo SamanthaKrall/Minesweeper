@@ -137,20 +137,20 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Resources\1.jpg" />
-    <Content Include="Resources\2.jpg" />
-    <Content Include="Resources\3.jpg" />
-    <Content Include="Resources\4.jpg" />
-    <Content Include="Resources\5.jpg" />
-    <Content Include="Resources\6.jpg" />
-    <Content Include="Resources\7.jpg" />
-    <Content Include="Resources\8.jpg" />
-    <Content Include="Resources\Blank.ico" />
-    <Content Include="Resources\blank.png" />
-    <Content Include="Resources\Flag.png" />
-    <Content Include="Resources\Mine.png" />
-    <Content Include="Resources\NoMine.ico" />
-    <Content Include="Resources\Question.ico" />
+    <Content Include="Images\1.jpg" />
+    <Content Include="Images\2.jpg" />
+    <Content Include="Images\3.jpg" />
+    <Content Include="Images\4.jpg" />
+    <Content Include="Images\5.jpg" />
+    <Content Include="Images\6.jpg" />
+    <Content Include="Images\7.jpg" />
+    <Content Include="Images\8.jpg" />
+    <Content Include="Images\Blank.ico" />
+    <Content Include="Images\blank.png" />
+    <Content Include="Images\Flag.png" />
+    <Content Include="Images\Mine.png" />
+    <Content Include="Images\NoMine.ico" />
+    <Content Include="Images\Question.ico" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="NLog.config">
@@ -177,14 +177,11 @@
     <Compile Include="Controllers\CustomActionAttribute.cs" />
     <Compile Include="Controllers\CustomAuthorizationAttribute.cs" />
     <Compile Include="Controllers\GameController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="GameEngine\MinesweeperEngine.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="MinesweeperEngine.cs" />
     <Compile Include="Models\Button.cs" />
     <Compile Include="Models\HighscoreModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
@@ -209,19 +206,12 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-    <Content Include="Views\Login\LoginPassed.cshtml" />
-    <Content Include="Views\Login\LoginFailed.cshtml" />
     <Content Include="Views\Shared\_ViewStart.cshtml" />
     <Content Include="Views\Game\Minesweeper.cshtml" />
     <Content Include="Views\Game\MinesweeperBoard.cshtml" />
-    <Content Include="Views\Register\Register.cshtml" />
-    <Content Include="Views\Register\RegisterFailed.cshtml" />
-    <Content Include="Views\Register\RegisterPassed.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_LoggedOutHeader.cshtml" />
@@ -246,7 +236,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\CustomActionAttribute\" />
     <Folder Include="Views\CustomAuthorizationAttribute\" />
   </ItemGroup>
   <PropertyGroup>

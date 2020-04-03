@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Minesweeper.Models;
+using Minesweeper.Services.Data;
 
 namespace Minesweeper.Services.Business
 {
@@ -12,10 +14,11 @@ namespace Minesweeper.Services.Business
             Data.SecurityDAO service = new Data.SecurityDAO();
             return service.FindByUser(user);
         }
-        public bool Insert(Models.UserModel user)
+
+        public string Register(RegisterModel user)
         {
-            Data.SecurityDAO insert = new Data.SecurityDAO();
-            return insert.NewUser(user);
+            SecurityDAO service = new SecurityDAO();
+            return service.Create(user);
         }
     }
 }
