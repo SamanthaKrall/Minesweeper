@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Minesweeper.RouteConfig">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\RouteConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minesweeper.UnityConfig">
+    <Position X="9.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\UnityConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minesweeper.UnityMvcActivator">
+    <Position X="11" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\UnityMvcActivator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minesweeper.MvcApplication">
+    <Position X="3.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minesweeper.Controllers.CustomActionAttribute" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\CustomActionAttribute.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Minesweeper.Controllers.CustomAuthorizationAttribute" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="2" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\CustomAuthorizationAttribute.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Minesweeper.Controllers.GameController">
+    <Position X="7.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAQAAAAAAAAAQICQAAAAAIAAAAAAAAAAQA=</HashCode>
+      <FileName>Controllers\GameController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minesweeper.Controllers.UserController">
+    <Position X="6.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAACAAEAAAIAAAABAAAAAAEQAAAAAAE=</HashCode>
+      <FileName>Controllers\UserController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minesweeper.GameEngine.MinesweeperEngine">
+    <Position X="9.25" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gQAAgAAAEAIAAAAAAgQAAAAAAAAAAgAIAIAAAAAAAAA=</HashCode>
+      <FileName>GameEngine\MinesweeperEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minesweeper.Models.Button">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAQAAAAAAAAEBAAAAAAAAAAgAAIAAACAABAAA=</HashCode>
+      <FileName>Models\Button.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minesweeper.Models.HighscoreModel">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Models\HighscoreModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minesweeper.Models.RegisterModel">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAABAAIAUAAAAAAAAAAAAACAAAABAAAAAA=</HashCode>
+      <FileName>Models\RegisterModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minesweeper.Models.UserModel">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\UserModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minesweeper.Services.Business.GameService">
+    <Position X="2" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAQAAAAAAAAAkAAAAAAAAAAAIAAAAAAAAAEAAAg=</HashCode>
+      <FileName>Services\Business\GameService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minesweeper.Services.Business.SecurityService">
+    <Position X="6.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\Business\SecurityService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minesweeper.Services.Data.GameDAO">
+    <Position X="0.5" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAABAAQAAAAAAAgAkAAAAAAAAAAAAAAEAAAAAAEAAAg=</HashCode>
+      <FileName>Services\Data\GameDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minesweeper.Services.Data.SecurityDAO">
+    <Position X="6.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAACAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\Data\SecurityDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minesweeper.Services.Utility.MyLogger1" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAYACAAAAABAABAhAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Services\Utility\MyLogger1.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Minesweeper.Services.Utility.MyLogger2" BaseTypeListCollapsed="true">
+    <Position X="2" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAYACAAAAABAAAAgAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Services\Utility\MyLogger2.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Minesweeper.Services.Utility.ILogger">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAYAAAAAAABAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Services\Utility\ILogger.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
